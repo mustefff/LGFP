@@ -21,6 +21,16 @@ class CreateJoueursTable extends Migration
             $table->date('debut_carriere');
             $table->string('poste');
             $table->integer('num_maillot');
+            $table->text('description')->nullable();
+            $table->integer('dribbles')->nullable();
+            $table->integer('passes')->nullable();
+            $table->integer('duel')->nullable();
+            $table->integer('tirs_bloques')->nullable();
+            $table->integer('interception')->nullable();
+            $table->integer('abord')->nullable();
+            $table->integer('recouvrement')->nullable();
+            $table->integer('dernier_homme')->nullable();
+            $table->integer('degagement')->nullable();
             $table->unsignedBigInteger('saison_id');
             $table->unsignedBigInteger('equipe_id');
             $table->foreign('saison_id')->references('id')->on('saisons');

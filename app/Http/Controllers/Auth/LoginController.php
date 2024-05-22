@@ -1,39 +1,43 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+// app/Http/Controllers/Auth/LoginController.php
 
+namespace App\Http\Controllers\Auth;
+use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function login(Request $request)
     {
-        $this->middleware('guest')->except('logout');
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentification réussie
+            $redirectUrl = '/';
+            if (Auth::user()->statut === 'admin') {
+                // Redirection de l'administrateur vers une page spécifique
+                $redirectUrl = route('dashboard');
+            } else if (Auth::user()->statut === 'gequipe') {
+                // Redirection du gestionnaire d'équipe vers son tableau de bord unique
+                $redirectUrl = route('gequipe');
+            }
+
+            return response()->json(['success' => true, 'message' => 'Vous êtes connecté!', 'redirect' => $redirectUrl]);
+        }
+
+        // Authentification échouée
+        return response()->json(['success' => false, 'message' => 'Email ou mot de passe incorrect!']);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

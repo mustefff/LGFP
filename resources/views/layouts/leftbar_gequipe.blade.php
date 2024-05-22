@@ -1,89 +1,98 @@
-<aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0">
-        <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold">LGFP</span>
-      </a>
-    </div>
-    <hr class="horizontal dark mt-0">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="../pages/dashboard.html" data-bs-toggle="collapse" data-bs-target="#joueurSubmenu" aria-expanded="false">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Joueur</span>
-          </a>
-          <div class="collapse" id="joueurSubmenu">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/creer-joueur.html">
-                  <span class="nav-link-text ms-1">Liste des joueurs</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/liste-joueurs.html">
-                  <span class="nav-link-text ms-1">Ajouter details joueurs</span>
-                </a>
-              </li>
-            </ul>
+<div class="sidebar-wrapper" data-layout="stroke-svg">
+  <div class="logo-wrapper">   <a href="index.html">     <h1 style="display: inline; color: white; ">LGFP</h1>   </a>
+    <div class="back-btn"><i class="fa fa-angle-left"> </i></div>
+    <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
+  </div>
+  <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="{{ asset('/assets/images/logo/logo-icon.png')}}" alt=""></a></div>
+  <nav class="sidebar-main">
+    <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
+    <div id="sidebar-menu">
+      <ul class="sidebar-links" id="simple-bar">
+        <li class="back-btn"><a href="index.html"><img class="img-fluid" src="{{ asset('/assets/images/logo/logo-icon.png')}}" alt=""></a>
+          <div class="mobile-back text-end"> <span>Back </span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+        </li>
+        <li class="pin-title sidebar-main-title">
+          <div> 
+            <h6>Pinned</h6>
           </div>
+        </li>
+        <li class="sidebar-main-title">
+          <div>
+            <h6 class="lan-1">General</h6>
+          </div>
+        </li>
+        <li class="sidebar-list"><i class="fa fa-thumb-tack"> </i><a class="sidebar-link sidebar-title" href="/gequipe">
+            <svg class="stroke-icon">
+              <use href="{{ asset('/assets/svg/icon-sprite.svg#stroke-home')}}"></use>
+            </svg>
+            <svg class="fill-icon">
+              
+            </svg><span  class="lan-3" >Tableau de Bord  </span></a>
+         
         </li>
         
-        <li class="nav-item">
-          <a class="nav-link " href="../pages/billing.html" data-bs-toggle="collapse" data-bs-target="#saisonSubmenu" aria-expanded="false">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Transfert</span>
-          </a>
-          <div class="collapse" id="saisonSubmenu">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/creer-saison.html">
-                  <span class="nav-link-text ms-1">Effectuer un transfert</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pages/liste-saisons.html">
-                  <span class="nav-link-text ms-1">Liste des transferts</span>
-                </a>
-              </li>
-            </ul>
+        <li class="sidebar-main-title">
+          <div>
+            <h6 >GESTION</h6>
           </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link " href="../pages/virtual-reality.html" data-bs-toggle="collapse" data-bs-target="#matchSubmenu" aria-expanded="false">
-              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-app text-info text-sm opacity-10"></i>
-              </div>
-              <span class="nav-link-text ms-1">Equipe</span>
-            </a>
-            <div class="collapse" id="matchSubmenu">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="../pages/creer-match.html">
-                    <span class="nav-link-text ms-1">Voir performances de l'équipe</span>
-                  </a>
-                </li>
-                
-              </ul>
-            </div>
-          </li>
+     
+        <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
+          <svg class="stroke-icon">
+            <use href="{{ asset('/assets/svg/icon-sprite.svg#stroke-project')}}"></use>
+            
+          </svg>
+          <svg class="fill-icon">
+            <use href="{{ asset('/assets/svg/icon-sprite.svg#fill-project')}}"></use>
+          </svg><span>Joueur </span></a>
+        <ul class="sidebar-submenu">
+          <li><a href="{{ route('mjoueurs.index') }}">Ajouter details des joueurs</a></li>
+          <li><a href="{{ route('mjoueurs.getAllInfo') }}">Liste des joueurs</a></li>
+        </ul>
+      </li>
+
+      <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
+        <svg class="stroke-icon">
+          <use href="{{ asset('/assets/svg/icon-sprite.svg#fill-board')}}"></use>
+        </svg>
+        <svg class="fill-icon">
+       
+          <use href="{{ asset('/assets/svg/icon-sprite.svg#fill-board')}}"></use>
+        </svg><span>Transfert </span></a>
+      <ul class="sidebar-submenu">
+        <li><a href="{{ route('mjoueurs.showTransfertForm') }}">Effectuer un transfert</a></li>
+        <li><a href="{{ route('mjoueurs.receivedTransferts') }}">Nouvelles propositions</a></li>
+        <li><a href="{{ route('mjoueurs.sentTransferts') }}">Transferts en attente</a></li>
+
+      </ul>
+    </li>
+   
+    <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
+      <svg class="stroke-icon">
+        <use href="{{ asset('/assets/svg/icon-sprite.svg#stroke-ecommerce')}}"></use>
+      </svg>
+      <svg class="fill-icon">
+        <use href="{{ asset('/assets/svg/icon-sprite.svg#fill-ecommerce')}}"></use>
+      </svg><span>L'équipe</span></a>
+    <ul class="sidebar-submenu">
+      <li><a href="">Performances </a></li>
+      <li><a href="">Ajouter details</a></li>
+    </ul>
+  </li>
+
+  
+
+
+
+
+
+
+
        
         
-        
-        <li class="nav-item">
-          <a class="nav-link " href="../pages/sign-up.html">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-collection text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Se déconnecter</span>
-          </a>
-        </li>
-      </ul>
+       
+       
+      <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
     </div>
-   
-  </aside>
+  </nav>
+</div>

@@ -104,13 +104,13 @@ display: inline-block; /* Affiche le nom de l'utilisateur en ligne avec l'image 
           <div class="left-header col-xxl-5 col-xl-6 col-lg-5 col-md-4 col-sm-3 p-0">
             <div> <a class="toggle-sidebar" href="#"> <i class="iconly-Category icli"> </i></a>
               <div class="d-flex align-items-center gap-2 ">
-                <h4 class="f-w-600">Bienvenu Mustafa</h4><img class="mt-0" src="../assets/images/hand.gif" alt="hand-gif">
+                <h4 class="f-w-600">Bienvenu {{ $userName }}</h4><img class="mt-0" src="../assets/images/hand.gif" alt="hand-gif">
               </div>
             </div>
             <div class="welcome-content d-xl-block d-none"><span class="text-truncate col-12">Page administration </span></div>
           </div>
           <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">
-            <ul class="nav-menus"> 
+            <ul class="nav-menus"> 0
               <li class="d-md-block d-none"> 
                 <div class="form search-form mb-0">
                   <div class="input-group"><span class="input-icon">
@@ -255,14 +255,17 @@ display: inline-block; /* Affiche le nom de l'utilisateur en ligne avec l'image 
               <li class="profile-nav onhover-dropdown"> 
                 <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.png" alt="">
                   <div class="media-body d-xxl-block d-none box-col-none">
-                    <div class="d-flex align-items-center gap-2"> <span>Mustafa </span><i class="middle fa fa-angle-down"> </i></div>
+                    <div class="d-flex align-items-center gap-2"> <span>{{ $userName }} </span><i class="middle fa fa-angle-down"> </i></div>
                     <p class="mb-0 font-roboto">Admin</p>
                   </div>
                 </div>
                 <ul class="profile-dropdown onhover-show-div">
                   <li><a href="user-profile.html"><i data-feather="user"></i><span>Mon profil</span></a></li>
                   <li> <a href="edit-profile.html"> <i data-feather="settings"></i><span>Paramètres</span></a></li>
-                  <li><a class="btn btn-pill btn-outline-primary btn-sm" href="login.html">Deconnexion</a></li>
+                  <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-pill btn-outline-primary btn-sm">Déconnexion</button>
+                </form>
                 </ul>
               </li>
             </ul>

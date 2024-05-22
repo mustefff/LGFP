@@ -20,7 +20,15 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="type_activite">Type d'activité:</label>
-                                <input type="text" name="type_activite" id="type_activite" class="form-control" required>
+                                <select name="type_activite" id="type_activite" class="form-control" required>
+                                    <option value="But">But</option>
+                                    <option value="Carton jaune">Carton jaune</option>
+                                    <option value="Carton rouge">Carton rouge</option>
+                                    <option value="Hors-jeu">Hors-jeu</option>
+                                    <option value="Fautes subies">Fautes subies</option>
+                                    <option value="Fautes commises">Fautes commises</option>
+                                    <option value="Aide">Aide</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row">

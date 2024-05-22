@@ -146,8 +146,9 @@
             <use href="../assets/svg/icon-sprite.svg#fill-user"></use>
           </svg><span>Utilisateurs </span></a>
         <ul class="sidebar-submenu">
-          <li><a href="">Créer un utilisateur</a></li>
-          <li><a href="">Liste des utilisateurs</a></li>
+          <li><a href="{{ route('admin.create') }}">Créer un Gérant d'équipe</a></li>
+          <li><a href="{{ route('admin.index') }}">Liste des utilisateurs</a></li>
+          <li><a href="{{ route('admin.transferts') }}">transferts</a></li>
         </ul>
       </li>
        

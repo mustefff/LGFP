@@ -11,9 +11,13 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC'; 
             $table->id();
+            $table->string('prenom');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('nationalite');
+            $table->date('date_naissance');
             $table->enum('statut', ['admin', 'gequipe']);
+           $table->text('photo')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

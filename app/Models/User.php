@@ -17,9 +17,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'prenom',
         'name',
         'email',
+        'nationalite',
+        'photo',
         'password',
+        'date_naissance',
+        'statut',
+        'equipe_id',
+        
     ];
 
     /**
@@ -44,4 +51,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function equipe()
+    {
+        return $this->belongsTo(Equipe::class);
+    }
+
+   
 }

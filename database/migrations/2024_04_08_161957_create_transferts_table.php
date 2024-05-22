@@ -12,7 +12,9 @@ class CreateTransfertsTable extends Migration
             $table->id();
             $table->engine = 'InnoDB ROW_FORMAT=DYNAMIC';
             $table->integer('num_maillot');
-            $table->string('periode');
+            $table->string('duree_contrat')->nullable(); // Exemple: 3 ans
+            $table->boolean('examen_medical_reussi')->default(false);
+            $table->string('document_contrat')->nullable(); // URL ou chemin vers le document de contrat
             $table->unsignedBigInteger('equipe_id');
             $table->foreign('equipe_id')->references('id')->on('equipes');
             $table->unsignedBigInteger('joueur_id');

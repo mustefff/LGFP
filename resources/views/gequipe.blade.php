@@ -1,482 +1,611 @@
-<!--
-=========================================================
-* Argon Dashboard 2 - v2.0.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Riho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Riho admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
+    <title>LGFP</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/icofont.css') }}">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/themify.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/simple-line-icons@2.5.5/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" type="text/css" />
+   <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" type="text/css" /> -->
+    <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>
-   LGFP
-  </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
-</head>
 
-<body class="g-sidenav-show   bg-gray-100">
-  <div class="min-height-300 bg-primary position-absolute w-100"></div>
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/flag-icon.css') }}">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/feather-icon.css') }}">
+    <!-- Plugins css start-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/slick-theme.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/scrollbar.css') }}">
+    <!-- Range slider css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/rangeslider/rSlider.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/prism.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/fullcalender.css') }}">
+    <!-- Plugins css Ends-->
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/bootstrap.css') }}">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <link id="color" rel="stylesheet" href="{{ asset('assets/css/color-1.css') }}" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
+    
+  </head>
+  <body>
 
-  @include('layouts.leftbar_gequipe')
-  
-  <main class="main-content position-relative border-radius-lg ">
-    <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Tableau de bord</li>
-          </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Tableau de bord du gestionnaire d'équipe</h6>
-        </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Rechercher ici...">
-            </div>
-          </div>
-          <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
-                <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Se déconnecter</span>
-              </a>
-            </li>
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line bg-white"></i>
-                  <i class="sidenav-toggler-line bg-white"></i>
-                  <i class="sidenav-toggler-line bg-white"></i>
+    <style>
+      .user-alerts {
+display: flex; /* Utilisez flex pour aligner les éléments horizontalement */
+align-items: center; /* Centre les éléments verticalement */
+gap: 10px; /* Ajoute un espace entre les éléments */
+}
+
+.user-image {
+width: 50px; /* Fixe la largeur */
+height: 50px; /* Fixe la hauteur pour maintenir l'aspect circulaire */
+border-radius: 50%; /* Rend l'image circulaire */
+}
+
+.user-name {
+display: inline-block; /* Affiche le nom de l'utilisateur en ligne avec l'image */
+}
+
+    </style>
+    
+    <!-- loader starts-->
+    <div class="loader-wrapper">
+      <div class="loader"> 
+        <div class="loader4"></div>
+      </div>
+    </div>
+    <!-- loader ends-->
+    <!-- tap on top starts-->
+    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <!-- tap on tap ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+      <!-- Page Header Start-->
+      <div class="page-header">
+        <div class="header-wrapper row m-0">
+          <form class="form-inline search-full col" action="#" method="get">
+            <div class="form-group w-100">
+              <div class="Typeahead Typeahead--twitterUsers">
+                <div class="u-posRelative"> 
+                  <input class="demo-input Typeahead-input form-control-plaintext w-100" type="text" placeholder="Search Riho .." name="q" title="" autofocus>
+                  <div class="spinner-border Typeahead-spinner" role="status"><span class="sr-only">Loading... </span></div><i class="close-search" data-feather="x"></i>
                 </div>
-              </a>
-            </li>
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-              </a>
-            </li>
-            <li class="nav-item dropdown pe-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-bell cursor-pointer"></i>
-              </a>
-              <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                <div class="Typeahead-menu"> </div>
+              </div>
+            </div>
+          </form>
+          <div class="header-logo-wrapper col-auto p-0">  
+           
+            <div class="toggle-sidebar"> <i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
+          </div>
+          <div class="left-header col-xxl-5 col-xl-6 col-lg-5 col-md-4 col-sm-3 p-0">
+            <div> <a class="toggle-sidebar" href="#"> <i class="iconly-Category icli"> </i></a>
+              <div class="d-flex align-items-center gap-2 ">
+                <h4 class="f-w-600">Bienvenu {{ $userName }}</h4><img class="mt-0" src="../assets/images/hand.gif" alt="hand-gif">
+              </div>
+            </div>
+            <div class="welcome-content d-xl-block d-none"><span class="text-truncate col-12">Page administration </span></div>
+          </div>
+          <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">
+            <ul class="nav-menus"> 
+              <li class="d-md-block d-none"> 
+                <div class="form search-form mb-0">
+                  <div class="input-group"><span class="input-icon">
+                      <svg>
+                        <use href="../assets/svg/icon-sprite.svg#search-header"></use>
+                      </svg>
+                      <input class="w-100" type="search" placeholder="Rechercher"></span></div>
+                </div>
+              </li>
+              <li class="d-md-none d-block"> 
+                <div class="form search-form mb-0">
+                  <div class="input-group"> <span class="input-show"> 
+                      <svg id="searchIcon">
+                        <use href="../assets/svg/icon-sprite.svg#search-header"></use>
+                      </svg>
+                      <div id="searchInput">
+                        <input type="search" placeholder="Search">
+                      </div></span></div>
+                </div>
+              </li>
+              <li class="onhover-dropdown">
+                <svg>
+                  <use href="../assets/svg/icon-sprite.svg#star"></use>
+                </svg>
+                <div class="onhover-show-div bookmark-flip">
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="front">
+                        <h6 class="f-18 mb-0 dropdown-title">Bookmark</h6>
+                        <ul class="bookmark-dropdown">
+                          <li>
+                            <div class="row">
+                              <div class="col-4 text-center">
+                                <div class="bookmark-content">
+                                  <div class="bookmark-icon"><i data-feather="file-text"></i></div><span>Forms</span>
+                                </div>
+                              </div>
+                              <div class="col-4 text-center">
+                                <div class="bookmark-content">
+                                  <div class="bookmark-icon"><i data-feather="user"></i></div><span>Profile</span>
+                                </div>
+                              </div>
+                              <div class="col-4 text-center">
+                                <div class="bookmark-content">
+                                  <div class="bookmark-icon"><i data-feather="server"></i></div><span>Tables</span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="text-center"><a class="flip-btn f-w-700" id="flip-btn" href="javascript:void(0)">Add New Bookmark</a></li>
+                        </ul>
                       </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">Nouveau</span> from Laur
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          13 minutes ago
-                        </p>
+                      <div class="back">
+                        <ul>
+                          <li>
+                            <div class="bookmark-dropdown flip-back-content">
+                              <input type="text" placeholder="search...">
+                            </div>
+                          </li>
+                          <li><a class="f-w-700 d-block flip-back" id="flip-back" href="javascript:void(0)">Back</a></li>
+                        </ul>
                       </div>
                     </div>
-                  </a>
-                </li>
-                <li class="mb-2">
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="my-auto">
-                        <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                  </div>
+                </div>
+              </li>
+              <li> 
+                <div class="mode"><i class="moon" data-feather="moon"> </i></div>
+              </li>
+              <li class="onhover-dropdown notification-down">
+                <div class="notification-box"> 
+                  <svg> 
+                      <use href="../assets/svg/icon-sprite.svg#notification-header"></use>
+                  </svg>
+                  <span class="badge rounded-pill badge-secondary"></span>
+                 </div>
+                     <div class="onhover-show-div notification-dropdown"> 
+                    <div class="card mb-0"> 
+                      <div class="card-header">
+                          <div class="common-space"> 
+                              <h4 class="text-start f-w-600">Notifications</h4>
+                              <div><span> Nouveaux()</span></div>
+                          </div>
                       </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New album</span> by Travis Scott
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          1 day
-                        </p>
+                      <div class="card-body">
+                          <div class="notifications-bar">
+                              <ul class="nav nav-pills nav-primary p-0" id="pills-tab" role="tablist">
+                                  <li class="nav-item p-0"> <a class="nav-link active" id="pills-aboutus-tab" data-bs-toggle="pill" href="#pills-aboutus" role="tab" aria-controls="pills-aboutus" aria-selected="true">Les 5 dernièrement ajoutés</a></li>
+                              </ul>
+
+                              <style>
+                                .user-alerts {
+                                    display: flex; /* Utilisez flex pour aligner les éléments horizontalement */
+                                    align-items: center; /* Centre les éléments verticalement */
+                                    gap: 10px; /* Ajoute un espace entre les éléments */
+                                }
+                                
+                                .user-image {
+                                    width: 50px; /* Fixe la largeur */
+                                    height: 50px; /* Fixe la hauteur pour maintenir l'aspect circulaire */
+                                    border-radius: 50%; /* Rend l'image circulaire */
+                                }
+                                
+                                .user-name {
+                                    display: inline-block; /* Affiche le nom de l'utilisateur en ligne avec l'image */
+                                }
+                                
+                                .time-ago {
+                                    font-size: 12px; /* Taille de la police pour le temps écoulé */
+                                    color: gray; /* Couleur du texte pour le temps écoulé */
+                                }
+                            </style>
+                            
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-aboutus" role="tabpanel" aria-labelledby="pills-aboutus-tab">
+                                    <div class="user-message"> 
+                                        <ul> 
+                                           
+                                            <li>
+                                                <div class="user-alerts">
+                                                    <img class="user-image rounded-circle img-fluid me-2" src="" alt="Photo de " style="width: 50px; height: auto; border-radius: 50%;"/>
+                                                    
+                                                    <div class="user-name">
+                                                        <div> 
+                                                            <h6><a class="f-w-500 f-14" href="../template/user-profile.html"></a></h6>
+                                                            <span class="f-light f-w-500 f-12">Nouveau joueur ajouté</span>
+                                                            <span class="time-ago"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
                       </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                      <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
-                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                          <title>credit-card</title>
-                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                              <g transform="translate(1716.000000, 291.000000)">
-                                <g transform="translate(453.000000, 454.000000)">
-                                  <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-                                  <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                </g>
-                              </g>
-                            </g>
-                          </g>
-                        </svg>
-                      </div>
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1">
-                          Payment successfully completed
-                        </h6>
-                        <p class="text-xs text-secondary mb-0">
-                          <i class="fa fa-clock me-1"></i>
-                          2 days
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
+                  </div>
+              </div>
             </li>
-          </ul>
+              <li class="profile-nav onhover-dropdown"> 
+                <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.png" alt="">
+                  <div class="media-body d-xxl-block d-none box-col-none">
+                    <div class="d-flex align-items-center gap-2"> <span>{{ $userName }}</span><i class="middle fa fa-angle-down"> </i></div>
+                    <p class="mb-0 font-roboto">Gestionnaire</p>
+                  </div>
+                </div>
+                <ul class="profile-dropdown onhover-show-div">
+                  <li><a href="user-profile.html"><i data-feather="user"></i><span>Mon profil</span></a></li>
+                  <li> <a href="edit-profile.html"> <i data-feather="settings"></i><span>Paramètres</span></a></li>
+                  <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-pill btn-outline-primary btn-sm">Déconnexion</button>
+                </form>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <script class="result-template" type="text/x-handlebars-template">
+            <div class="ProfileCard u-cf">                        
+            <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
+            <div class="ProfileCard-details"> 
+            <div class="ProfileCard-realName"></div>
+            </div> 
+            </div>
+          </script>
+          <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div></script>
         </div>
       </div>
-    </nav>
-    <!-- End Navbar -->
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
+      <!-- Page Header Ends                              -->
+      <!-- Page Body Start-->
+      <div class="page-body-wrapper">
+        <!-- Page Sidebar Start-->
+      
+		            @include('layouts.leftbar_gequipe')
+
+
+        <!-- Page Sidebar Ends-->
+        <div class="page-body" >
+          <div class="container-fluid">
+            <div class="page-title">
               <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Joueurs dans l'équipe</p>
-                    <h5 class="font-weight-bolder">
-                      5
-                    </h5>
-                    
-                  </div>
+                <div class="col-6">
+                  <h4>
+                     Tableau de bord</h4>
                 </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
+                <div class="col-6">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"> 
+                        <svg class="stroke-icon">
+                          <use href="../assets/svg/icon-sprite.svg#stroke-home"></use>
+                        </svg></a></li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item active">Tableau de Bord</li>
+                  </ol>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Joueurs transférés</p>
-                    <h5 class="font-weight-bolder">
-                      14
-                    </h5>
-                   
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
+            <div class="row size-column"> 
+              <div class="col-xxl-12 box-col-12">
+                <div class="row"> 
+                  <div class="col-xl-3 col-sm-6">
+                    <div class="card o-hidden small-widget">
+                      <div class="card-body total-project border-b-primary border-2"><span class="f-light f-w-500 f-14">Rang au classement</span>
+                        <div class="project-details"> 
+                          <div class="project-counter"> 
+                            <h2 class="f-w-600">6</h2><span class="f-12 f-w-400">(This month)</span>
+                          </div>
+                          <div class="product-sub bg-primary-light">
+                            <svg class="invoice-icon">
+                              <use href="../assets/svg/icon-sprite.svg#color-swatch"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <ul class="bubbles">
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
-                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                  <div class="col-xl-3 col-sm-6">
+                    <div class="card o-hidden small-widget">
+                      <div class="card-body total-Progress border-b-warning border-2"> <span class="f-light f-w-500 f-14">Joueurs</span>
+                        <div class="project-details">
+                          <div class="project-counter">
+                            <h2 class="f-w-600">22</h2><span class="f-12 f-w-400">(This month) </span>
+                          </div>
+                          <div class="product-sub bg-warning-light"> 
+                            <svg class="invoice-icon">
+                              <use href="../assets/svg/icon-sprite.svg#tick-circle"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <ul class="bubbles">
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
+                  <div class="col-xl-3 col-sm-6">
+                    <div class="card o-hidden small-widget">
+                      <div class="card-body total-Complete border-b-secondary border-2"><span class="f-light f-w-500 f-14">Matchs</span>
+                        <div class="project-details">
+                          <div class="project-counter">
+                            <h2 class="f-w-600">11</h2><span class="f-12 f-w-400">(This month) </span>
+                          </div>
+                          <div class="product-sub bg-secondary-light"> 
+                            <svg class="invoice-icon">
+                              <use href="../assets/svg/icon-sprite.svg#user-visitor"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <ul class="bubbles"> 
+                          <li class="bubble"> </li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"> </li>
+                          <li class="bubble"></li>
+                          <li class="bubble"> </li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"> </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6">
+                    <div class="card o-hidden small-widget">
+                      <div class="card-body total-upcoming"><span class="f-light f-w-500 f-14">Buts</span>
+                        <div class="project-details"> 
+                          <div class="project-counter">
+                            <h2 class="f-w-600">9</h2><span class="f-12 f-w-400">(This month) </span>
+                          </div>
+                          <div class="product-sub bg-light-light"> 
+                            <svg class="invoice-icon">
+                              <use href="../assets/svg/icon-sprite.svg#edit-2"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <ul class="bubbles"> 
+                          <li class="bubble"> </li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-xl-3 col-sm-6">
+                    <div class="card o-hidden small-widget">
+                      <div class="card-body total-Complete border-b-secondary border-2"><span class="f-light f-w-500 f-14">Transferts</span>
+                        <div class="project-details">
+                          <div class="project-counter">
+                            <h2 class="f-w-600">4</h2><span class="f-12 f-w-400">(This month) </span>
+                          </div>
+                          <div class="product-sub bg-secondary-light"> 
+                            <svg class="invoice-icon">
+                              <use href="../assets/svg/icon-sprite.svg#course-2"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <ul class="bubbles"> 
+                          <li class="bubble"> </li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"> </li>
+                          <li class="bubble"></li>
+                          <li class="bubble"> </li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"> </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xl-3 col-sm-6">
+                    <div class="card o-hidden small-widget">
+                      <div class="card-body total-upcoming"><span class="f-light f-w-500 f-14">Saisons joués</span>
+                        <div class="project-details"> 
+                          <div class="project-counter">
+                            <h2 class="f-w-600">2</h2><span class="f-12 f-w-400">(This month) </span>
+                          </div>
+                          <div class="product-sub bg-light-light"> 
+                            <svg class="invoice-icon">
+                              <use href="../assets/svg/icon-sprite.svg#fill-board"></use>
+                            </svg>
+                          </div>
+                        </div>
+                        <ul class="bubbles"> 
+                          <li class="bubble"> </li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                          <li class="bubble"></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="container">
+  <!--  <div class="row">
+        <div class="col-lg-6 col-sm-12 box-col-12">
+            <div class="card">
+                <div class="card-header">
+                       <span>Nombre de Buts par Saison</span>
                 </div>
-              </div>
+                <div class="card-body">
+                    <canvas id="myChart" style="width: 100%; height: 400px;"></canvas>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="col-lg-6 col-sm-12 box-col-12">
           <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Nombre de matchs</p>
-                    <h5 class="font-weight-bolder">
-                      36
-                    </h5>
-                    
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
-                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
+              <div class="card-header d-flex justify-content-between align-items-center">
+                  <span>Âge Moyen des Joueurs par Équipe et Saison</span>
+                  <select id="seasonSelect" class="form-control w-auto">
+                     
+                      
+                  </select>
               </div>
-            </div>
+              <div class="card-body">
+                  <canvas id="ageChart" style="width: 100%; height: 400px;"></canvas>
+              </div>
           </div>
-        </div>
-        
       </div>
-      <div class="row mt-4">
-        <div class="col-lg-7 mb-lg-0 mb-4">
-          <div class="card z-index-2 h-100">
-            <div class="card-header pb-0 pt-3 bg-transparent">
-              <h6 class="text-capitalize">Statistique joueurs</h6>
-              <p class="text-sm mb-0">
-                <i class="fa fa-arrow-up text-success"></i>
-                <span class="font-weight-bold">11% de plus</span> en 2024
-              </p>
-            </div>
-            <div class="card-body p-3">
-              <div class="chart">
-                <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5">
-          <div class="card card-carousel overflow-hidden h-100 p-0">
-            <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
-              <div class="carousel-inner border-radius-lg h-100">
-                <div class="carousel-item h-100 active" style="background-image: url('../assets/img/carousel-1.jpg');
-      background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                      <i class="ni ni-camera-compact text-dark opacity-10"></i>
-                    </div>
-                    <h5 class="text-white mb-1">Lorem ipsum dolor sit amet</h5>
-                    <p>Vestibulum in mauris non enim tincidunt tincidunt. Integer commodo diam at lectus luctus.</p>
-                  </div>
-                </div>
-                <div class="carousel-item h-100" style="background-image: url('../assets/img/carousel-2.jpg');
-      background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                      <i class="ni ni-bulb-61 text-dark opacity-10"></i>
-                    </div>
-                    <h5 class="text-white mb-1">Lorem ipsum dolor sit amet</h5>
-                    <p>Vestibulum in mauris non enim tincidunt tincidunt. Integer commodo diam at lectus luctus.</p>
-                  </div>
-                </div>
-                <div class="carousel-item h-100" style="background-image: url('../assets/img/carousel-3.jpg');
-      background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                      <i class="ni ni-trophy text-dark opacity-10"></i>
-                    </div>
-                    <h5 class="text-white mb-1">Lorem ipsum dolor sit amet</h5>
-                    <p>Vestibulum in mauris non enim tincidunt tincidunt. Integer commodo diam at lectus luctus.</p>
-                  </div>
+    </div>
+</div>
+-->
+				  
+				  
+                 
+
                 </div>
               </div>
-              <button class="carousel-control-prev w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-     
-      <footer class="footer pt-3  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                Fait avec <i class="fa fa-heart"></i> 
-                pour une meilleure navigation
-              
-              </div>
-            </div>
             
+                
+                
+
+               
+               
+              </div>
+			  @yield('content')
+            </div>
           </div>
+          <!-- Container-fluid Ends-->
         </div>
-      </footer>
-    </div>
-  </main>
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
-    <div class="card shadow-lg">
-      <div class="card-header pb-0 pt-3 ">
-        <div class="float-start">
-          <h5 class="mt-3 mb-0">Personnalisation</h5>
-          <p>Voir les différents options</p>
-        </div>
-        <div class="float-end mt-4">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="fa fa-close"></i>
-          </button>
-        </div>
-        <!-- End Toggle Button -->
+        <!-- footer start-->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12 footer-copyright text-center">
+                <p class="mb-0">Copyright 2024 © LGFP Ligue Gabonaise de Football Professionnel  </p>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0 overflow-auto">
-        <!-- Sidebar Backgrounds -->
-        <div>
-          <h6 class="mb-0">Couleurs sidebars</h6>
-        </div>
-        <a href="javascript:void(0)" class="switch-trigger background-color">
-          <div class="badge-colors my-2 text-start">
-            <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
-          </div>
-        </a>
-        <!-- Sidenav Type -->
-        <div class="mt-3">
-          <h6 class="mb-0">Type de Sidenav</h6>
-          <p class="text-sm">Choisis entre les 2 differents types de sidenav.</p>
-        </div>
-        <div class="d-flex">
-          <button class="btn bg-gradient-primary w-100 px-3 mb-2 active me-2" data-class="bg-white" onclick="sidebarType(this)">Blanc</button>
-          <button class="btn bg-gradient-primary w-100 px-3 mb-2" data-class="bg-default" onclick="sidebarType(this)">Noir</button>
-        </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
-        <div class="d-flex my-3">
-          <h6 class="mb-0">Navbar Fixé</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-          </div>
-        </div>
-        <hr class="horizontal dark my-sm-4">
-        <div class="mt-2 mb-5 d-flex">
-          <h6 class="mb-0">Clair / Sombre</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
-          </div>
-        </div>
-       
-          </a>
-        </div>
-      </div>
-      @yield('content')
     </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
-  <script>
-    var ctx1 = document.getElementById("chart-line").getContext("2d");
 
-    var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+       <!-- Inclusion de jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-    gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
-    gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
-    gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
-    new Chart(ctx1, {
-      type: "line",
-      data: {
-        labels: ["Janv", "Fev", "Mar", "Av", "Mai", "Jun", "Jul", "Aout", "Sep"],
-        datasets: [{
-          label: "Mobile apps",
-          tension: 0.4,
-          borderWidth: 0,
-          pointRadius: 0,
-          borderColor: "#5e72e4",
-          backgroundColor: gradientStroke1,
-          borderWidth: 3,
-          fill: true,
-          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-          maxBarThickness: 6
+<!-- Inclusion de Raphael (nécessaire pour Morris.js) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
 
-        }],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          }
-        },
-        interaction: {
-          intersect: false,
-          mode: 'index',
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: true,
-              drawOnChartArea: true,
-              drawTicks: false,
-              borderDash: [5, 5]
-            },
-            ticks: {
-              display: true,
-              padding: 10,
-              color: '#fbfbfb',
-              font: {
-                size: 11,
-                family: "Open Sans",
-                style: 'normal',
-                lineHeight: 2
-              },
-            }
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-              borderDash: [5, 5]
-            },
-            ticks: {
-              display: true,
-              color: '#ccc',
-              padding: 20,
-              font: {
-                size: 11,
-                family: "Open Sans",
-                style: 'normal',
-                lineHeight: 2
-              },
-            }
-          },
-        },
-      },
-    });
-  </script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/argon-dashboard.min.js?v=2.0.4"></script>
-</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Inclusion de Morris.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
+
+    <!-- latest jquery-->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+
+   
+    <!-- feather icon js-->
+    <script src="{{ asset('assets/js/icons/feather-icon/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/icons/feather-icon/feather-icon.js') }}"></script>
+    <!-- scrollbar js-->
+    <script src="{{ asset('assets/js/scrollbar/simplebar.js') }}"></script>
+    <script src="{{ asset('assets/js/scrollbar/custom.js') }}"></script>
+    <!-- Sidebar jquery-->
+    <script src="{{ asset('assets/js/config.js') }}"></script>
+
+   
+    <!-- Plugins JS start-->
+    <script src="{{ asset('assets/js/sidebar-menu.js') }}"></script>
+    <script src="{{ asset('assets/js/sidebar-pin.js') }}"></script>
+    <script src="{{ asset('assets/js/slick/slick.min.js') }}"></script>
+    <script src="{{ asset('assets/js/slick/slick.js') }}"></script>
+    <script src="{{ asset('assets/js/header-slick.js') }}"></script>
+    <script src="{{ asset('assets/js/chart/apex-chart/apex-chart.js') }}"></script>
+    <script src="{{ asset('assets/js/chart/apex-chart/stock-prices.js') }}"></script>
+    <!-- Range Slider js-->
+    <script src="{{ asset('assets/js/range-slider/rSlider.min.js') }}"></script>
+    <script src="{{ asset('assets/js/rangeslider/rangeslider.js') }}"></script>
+    <script src="{{ asset('assets/js/prism/prism.min.js') }}"></script>
+    <script src="{{ asset('assets/js/clipboard/clipboard.min.js') }}"></script>
+    <script src="{{ asset('assets/js/counter/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/js/counter/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/counter/counter-custom.js') }}"></script>
+    <script src="{{ asset('assets/js/custom-card/custom-card.js') }}"></script>
+    <!-- calendar js-->
+    <script src="{{ asset('assets/js/calendar/fullcalender.js') }}"></script>
+    <script src="{{ asset('assets/js/calendar/custom-calendar.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard/dashboard_2.js') }}"></script>
+    <script src="{{ asset('assets/js/animation/wow/wow.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- Inclusion de jQuery -->
+
+
+<!-- Inclusion de Bootstrap JS -->
+   
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Inclusion de Bootstrap CSS -->
+
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/theme-customizer/customizer.js') }}"></script>
+    <script>new WOW().init();</script>
+  </body>
 </html>
+

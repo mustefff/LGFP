@@ -12,6 +12,7 @@ class Equipe extends Model
     // Définir la relation avec Joueur
     public function joueurs()
     {
+        
         return $this->hasMany(Joueur::class, 'equipe_id');
     }
 }

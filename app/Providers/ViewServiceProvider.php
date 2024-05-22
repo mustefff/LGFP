@@ -11,6 +11,7 @@ use App\Models\Game;
 use App\Models\Stade;
 use App\Models\Saison;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,10 @@ class ViewServiceProvider extends ServiceProvider
             $newPlayersCount = Joueur::where('created_at', '>', now()->subDay())->count(); // Compter les joueurs créés dans les dernières 24 heures
 
             $view->with(compact('latestPlayers', 'newPlayersCount'));
+
+            $user = Auth::user();
+            $userName = $user->prenom ;
+            $view->with('userName', $userName);
         });
 
         View::composer('dashboard', function ($view) {
@@ -75,6 +80,11 @@ class ViewServiceProvider extends ServiceProvider
             $newPlayersCount = Joueur::where('created_at', '>', now()->subDay())->count(); // Compter les joueurs créés dans les dernières 24 heures
 
             $view->with(compact('latestPlayers', 'newPlayersCount'));
+
+
+            $user = Auth::user();
+            $userName = $user->prenom ;
+            $view->with('userName', $userName);
            
         });
 

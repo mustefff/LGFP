@@ -48,10 +48,19 @@
                     <div class="form-group mt-4">
                         <label for="infos-carriere" class="text-primary">Informations de Carrière</label>
                         <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="poste">Poste:</label>
-                                <input type="text" class="form-control" id="poste" name="poste" required>
+                            
+
+                         <div class="col-md-6 ">
+                                <label for="poste">Type d'activité:</label>
+                                <select name="poste" id="poste" class="form-control" required>
+                                    <option value="Gardien de But">Gardien de But</option>
+                                    <option value="Defenseur">Défenseur</option>
+                                    <option value="Milieu de Terrain">Milieu de Terrain</option>
+                                    <option value="Attaquant">Attaquant</option>
+                                   
+                                </select>
                             </div>
+
                             <div class="col-md-6">
                                 <label for="debut_carriere">Début de Carrière:</label>
                                 <input type="date" class="form-control" id="debut_carriere" name="debut_carriere" required>
